@@ -45,7 +45,7 @@ const OrderHistoryPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: 4 }}>
+    <Container maxWidth="lg" sx={{ py: 4, mt: '56px' }}>
       <Typography variant="h4" sx={{ mb: 4, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 1 }}>
         <Receipt /> Lịch sử đơn hàng
       </Typography>

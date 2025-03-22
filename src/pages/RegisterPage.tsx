@@ -150,6 +150,7 @@ const RegisterPage: React.FC = () => {
       sx={{ 
         py: { xs: 4, md: 8 },
         px: { xs: 2, md: 3 },
+        mt: '56px'
       }}
     >
       <Paper 

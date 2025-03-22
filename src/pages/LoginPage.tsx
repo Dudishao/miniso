@@ -80,7 +80,7 @@ const LoginPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="sm" sx={{ py: 8 }}>
+    <Container maxWidth="sm" sx={{ py: 4, mt: '56px' }}>
       <Paper
         elevation={3}
         sx={{

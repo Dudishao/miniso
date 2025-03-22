@@ -38,7 +38,7 @@ const CategoryPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="xl" sx={{ py: 3 }}>
+    <Container maxWidth="xl" sx={{ py: 4, mt: '56px' }}>
       {/* Header Section */}
       <Box sx={{ mb: 4 }}>
         <Breadcrumbs 

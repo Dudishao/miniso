@@ -44,7 +44,7 @@ const AboutPage: React.FC = () => {
   ];
 
   return (
-    <Container maxWidth="lg" sx={{ py: 5 }}>
+    <Container maxWidth="lg" sx={{ py: 5, mt: '56px' }}>
       {/* Banner */}
       <Box 
         sx={{ 

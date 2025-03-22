@@ -147,7 +147,7 @@ const Header: React.FC = () => {
           <ListItem 
             button 
             onClick={() => {
-              navigate('/orders');
+              navigate('/account/orders');
               setMobileMenuOpen(false);
             }}
           >
@@ -174,7 +174,16 @@ const Header: React.FC = () => {
   );
 
   return (
-    <AppBar position="sticky" color="default" elevation={1} sx={{ bgcolor: 'white' }}>
+    <AppBar 
+      position="fixed"
+      color="default" 
+      elevation={1} 
+      sx={{ 
+        bgcolor: 'white',
+        top: 0,
+        zIndex: (theme) => theme.zIndex.drawer + 1
+      }}
+    >
       <Container maxWidth="lg">
         <Toolbar disableGutters sx={{ justifyContent: 'space-between' }}>
           {isMobile && (

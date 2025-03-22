@@ -200,7 +200,7 @@ const ProductDetailPage: React.FC = () => {
   };
 
   return (
-    <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 4 } }}>
+    <Container maxWidth="lg" sx={{ py: { xs: 2, sm: 4 }, mt: '56px' }}>
       <IconButton
         onClick={() => navigate(-1)}
         sx={{ mb: 2 }}

@@ -169,6 +169,7 @@ const HomePage: React.FC = () => {
   return (
     <Box sx={{ 
       scrollBehavior: 'smooth',
+      pt: '64px',
       '& > section': {
         opacity: 0,
         animation: 'fadeInUp 1s ease forwards',
@@ -193,6 +194,7 @@ const HomePage: React.FC = () => {
           height: { xs: '100vh', md: '100vh' },
           overflow: 'hidden',
           mb: 0,
+          mt: '-64px',
           '&::before': {
             content: '""',
             position: 'absolute',
@@ -313,19 +315,21 @@ const HomePage: React.FC = () => {
                 size="large"
                 onClick={handleExploreClick}
                 sx={{
-                  bgcolor: 'white',
+                  bgcolor: 'rgba(255,255,255,0.9)',
                   color: 'text.primary',
-                  fontWeight: 600,
+                  fontWeight: 500,
                   px: 5,
                   py: 1.5,
-                  borderRadius: '4px',
+                  borderRadius: '30px',
                   textTransform: 'none',
                   fontSize: '1.1rem',
-                  boxShadow: '0 4px 14px rgba(0,0,0,0.1)',
+                  backdropFilter: 'blur(10px)',
+                  boxShadow: '0 8px 20px rgba(0,0,0,0.08)',
+                  border: '1px solid rgba(255,255,255,0.3)',
                   '&:hover': {
                     bgcolor: 'white',
                     transform: 'translateY(-3px)',
-                    boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
+                    boxShadow: '0 12px 25px rgba(0,0,0,0.15)',
                   },
                   transition: 'all 0.3s ease',
                 }}
@@ -339,16 +343,21 @@ const HomePage: React.FC = () => {
                 onClick={() => categoriesRef.current?.scrollIntoView({ behavior: 'smooth' })}
                 sx={{
                   color: 'white',
-                  borderColor: 'white',
+                  borderColor: 'rgba(255,255,255,0.5)',
                   fontWeight: 500,
                   px: 5,
                   py: 1.5,
-                  borderRadius: '4px',
+                  borderRadius: '30px',
                   textTransform: 'none',
                   fontSize: '1.1rem',
+                  backdropFilter: 'blur(5px)',
+                  background: 'rgba(255,255,255,0.1)',
+                  borderWidth: '1px',
                   '&:hover': {
                     borderColor: 'white',
-                    bgcolor: 'rgba(255,255,255,0.1)',
+                    background: 'rgba(255,255,255,0.2)',
+                    boxShadow: '0 8px 20px rgba(0,0,0,0.15)',
+                    transform: 'translateY(-3px)',
                   },
                   transition: 'all 0.3s ease',
                 }}
@@ -667,139 +676,139 @@ const HomePage: React.FC = () => {
             width: '100%', 
             display: 'flex', 
             justifyContent: 'center', 
-            alignItems: 'center'
+            alignItems: 'center',
+            maxWidth: '100%'
           }}>
-            <Box
-              sx={{
-                width: '100%',
-                maxWidth: { xs: '100%', sm: '95%', md: '90%', lg: '80%' },
-                mx: 'auto'
+            <Grid 
+              container 
+              spacing={4} 
+              sx={{ 
+                justifyContent: 'center', 
+                maxWidth: '100%', 
+                width: '100%', 
+                mx: 'auto',
+                px: { xs: 0, sm: 3, md: 4 },
+                '& .MuiGrid-item': {
+                  paddingLeft: '16px !important',
+                  paddingRight: '16px !important'
+                }
               }}
             >
-              <Grid 
-                container 
-                spacing={{ xs: 2, sm: 3, md: 4 }}
-                sx={{ 
-                  width: '100%',
-                  justifyContent: 'center'
-                }}
-              >
-                {featuredProducts.slice(0, 8).map((product, index) => (
-                  <Grid 
-                    item 
-                    xs={6} 
-                    sm={6} 
-                    md={3} 
-                    key={product.id} 
-                    sx={{ 
-                      display: 'flex', 
-                      justifyContent: 'center', 
-                      alignItems: 'center',
-                      mb: 2
-                    }}
-                  >
-                    <Paper
-                      elevation={0}
-                      sx={{
-                        overflow: 'hidden',
-                        borderRadius: '12px',
-                        cursor: 'pointer',
-                        height: '100%',
-                        transition: 'all 0.3s ease',
-                        border: '1px solid #eee',
-                        width: '100%',
-                        maxWidth: '90%',
-                        '&:hover': {
-                          transform: 'translateY(-8px)',
-                          boxShadow: '0 15px 30px rgba(0,0,0,0.1)',
-                          '& img': {
-                            transform: 'scale(1.05)',
-                          },
+              {featuredProducts.slice(0, 8).map((product, index) => (
+                <Grid 
+                  item 
+                  xs={6} 
+                  sm={6} 
+                  md={3} 
+                  key={product.id} 
+                  sx={{ 
+                    display: 'flex', 
+                    justifyContent: 'center', 
+                    alignItems: 'center',
+                    mb: 2
+                  }}
+                >
+                  <Paper
+                    elevation={0}
+                    sx={{
+                      overflow: 'hidden',
+                      borderRadius: '12px',
+                      cursor: 'pointer',
+                      height: '100%',
+                      transition: 'all 0.3s ease',
+                      border: '1px solid #eee',
+                      width: '100%',
+                      maxWidth: '90%',
+                      '&:hover': {
+                        transform: 'translateY(-8px)',
+                        boxShadow: '0 15px 30px rgba(0,0,0,0.1)',
+                        '& img': {
+                          transform: 'scale(1.05)',
                         },
-                      }}
-                      onClick={() => handleViewProduct(product.id)}
-                    >
-                      <Box sx={{ position: 'relative', pt: '100%' }}>
-                        <CardMedia
-                          component="img"
-                          image={product.image}
-                          alt={product.name}
+                      },
+                    }}
+                    onClick={() => handleViewProduct(product.id)}
+                  >
+                    <Box sx={{ position: 'relative', pt: '100%' }}>
+                      <CardMedia
+                        component="img"
+                        image={product.image}
+                        alt={product.name}
+                        sx={{
+                          position: 'absolute',
+                          top: 0,
+                          left: 0,
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          transition: 'transform 0.5s ease',
+                        }}
+                      />
+                      {product.discount && (
+                        <Chip
+                          label={`-${product.discount}%`}
+                          size="small"
                           sx={{
                             position: 'absolute',
-                            top: 0,
-                            left: 0,
-                            width: '100%',
-                            height: '100%',
-                            objectFit: 'cover',
-                            transition: 'transform 0.5s ease',
+                            top: { xs: 8, sm: 12 },
+                            left: { xs: 8, sm: 12 },
+                            bgcolor: 'error.main',
+                            color: 'white',
+                            fontWeight: 'bold',
+                            borderRadius: '4px',
+                            fontSize: { xs: '0.8rem', sm: '0.9rem' },
+                            height: { xs: 24, sm: 28 },
+                            zIndex: 1
                           }}
                         />
-                        {product.discount && (
-                          <Chip
-                            label={`-${product.discount}%`}
-                            size="small"
-                            sx={{
-                              position: 'absolute',
-                              top: { xs: 8, sm: 12 },
-                              left: { xs: 8, sm: 12 },
-                              bgcolor: 'error.main',
-                              color: 'white',
-                              fontWeight: 'bold',
-                              borderRadius: '4px',
-                              fontSize: { xs: '0.8rem', sm: '0.9rem' },
-                              height: { xs: 24, sm: 28 },
-                              zIndex: 1
-                            }}
-                          />
-                        )}
-                      </Box>
-                      <Box sx={{ p: { xs: 1.5, sm: 2 }, textAlign: 'center' }}>
+                      )}
+                    </Box>
+                    <Box sx={{ p: { xs: 1.5, sm: 2 }, textAlign: 'center' }}>
+                      <Typography
+                        variant="subtitle1"
+                        sx={{
+                          fontWeight: 600,
+                          fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' },
+                          height: { xs: '2.5em', sm: '2.5em' },
+                          overflow: 'hidden',
+                          textOverflow: 'ellipsis',
+                          display: '-webkit-box',
+                          WebkitLineClamp: 2,
+                          WebkitBoxOrient: 'vertical',
+                        }}
+                      >
+                        {product.name}
+                      </Typography>
+                      <Box sx={{ mt: 0.5, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
                         <Typography
-                          variant="subtitle1"
-                          sx={{
-                            fontWeight: 600,
-                            fontSize: { xs: '0.85rem', sm: '0.9rem', md: '1rem' },
-                            height: { xs: '2.5em', sm: '2.5em' },
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            display: '-webkit-box',
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: 'vertical',
+                          variant="h6"
+                          color="primary.main"
+                          sx={{ 
+                            fontWeight: 700,
+                            fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' }
                           }}
                         >
-                          {product.name}
+                          {formatPrice(product.price)}
                         </Typography>
-                        <Box sx={{ mt: 0.5, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+                        
+                        {product.originalPrice && (
                           <Typography
-                            variant="h6"
-                            color="primary.main"
+                            variant="body2"
+                            color="text.secondary"
                             sx={{ 
-                              fontWeight: 700,
-                              fontSize: { xs: '0.95rem', sm: '1rem', md: '1.1rem' }
+                              textDecoration: 'line-through',
+                              fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.85rem' }
                             }}
                           >
-                            {formatPrice(product.price)}
+                            {formatPrice(product.originalPrice)}
                           </Typography>
-                          
-                          {product.originalPrice && (
-                            <Typography
-                              variant="body2"
-                              color="text.secondary"
-                              sx={{ 
-                                textDecoration: 'line-through',
-                                fontSize: { xs: '0.75rem', sm: '0.8rem', md: '0.85rem' }
-                              }}
-                            >
-                              {formatPrice(product.originalPrice)}
-                            </Typography>
-                          )}
-                        </Box>
+                        )}
                       </Box>
-                    </Paper>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
+                    </Box>
+                  </Paper>
+                </Grid>
+              ))}
+            </Grid>
           </Box>
         </Container>
       </Box>
@@ -881,13 +890,19 @@ const HomePage: React.FC = () => {
               justifyContent: 'center', 
               maxWidth: '100%', 
               width: '100%', 
-              mx: 'auto' 
+              mx: 'auto',
+              px: { xs: 0, sm: 3, md: 4 }
             }}>
-              <Grid item xs={12} sm={6} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Grid item xs={12} sm={6} md={3} sx={{ 
+                display: 'flex', 
+                justifyContent: 'center',
+                width: '100%',
+                px: { xs: 0 }
+              }}>
                 <Paper
                   elevation={0}
                   sx={{
-                    p: 4,
+                    p: { xs: 3, sm: 4 },
                     width: '100%',
                     maxWidth: '100%',
                     height: '100%',
@@ -940,11 +955,16 @@ const HomePage: React.FC = () => {
                 </Paper>
               </Grid>
               
-              <Grid item xs={12} sm={6} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Grid item xs={12} sm={6} md={3} sx={{ 
+                display: 'flex', 
+                justifyContent: 'center',
+                width: '100%',
+                px: { xs: 0 }
+              }}>
                 <Paper
                   elevation={0}
                 sx={{
-                      p: 4,
+                      p: { xs: 3, sm: 4 },
                       width: '100%',
                       maxWidth: '100%',
                       height: '100%',
@@ -997,11 +1017,16 @@ const HomePage: React.FC = () => {
                 </Paper>
               </Grid>
               
-              <Grid item xs={12} sm={6} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Grid item xs={12} sm={6} md={3} sx={{ 
+                display: 'flex', 
+                justifyContent: 'center',
+                width: '100%',
+                px: { xs: 0 }
+              }}>
                 <Paper
                   elevation={0}
                   sx={{
-                    p: 4,
+                    p: { xs: 3, sm: 4 },
                     width: '100%',
                     maxWidth: '100%',
                     height: '100%',
@@ -1054,11 +1079,16 @@ const HomePage: React.FC = () => {
               </Paper>
               </Grid>
               
-              <Grid item xs={12} sm={6} md={3} sx={{ display: 'flex', justifyContent: 'center' }}>
+              <Grid item xs={12} sm={6} md={3} sx={{ 
+                display: 'flex', 
+                justifyContent: 'center',
+                width: '100%',
+                px: { xs: 0 }
+              }}>
                 <Paper
                   elevation={0}
                   sx={{
-                    p: 4,
+                    p: { xs: 3, sm: 4 },
                     width: '100%',
                     maxWidth: '100%',
                     height: '100%',
